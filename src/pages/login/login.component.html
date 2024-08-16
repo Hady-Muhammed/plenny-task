@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<main>
+  <div class="container">
+    <div class="header">
+      <img src="assets/Logomark.svg" alt="" />
+      <h1>Log in to your account</h1>
+      <p class="text">Welcome back! Please enter your details.</p>
+    </div>
+    <p>Note, test with this account name: jamesd pass: jamesdpass</p>
+    <form action="">
+      <div class="field">
+        <label for="">Name</label>
+        <input
+          name="username"
+          [(ngModel)]="userName"
+          placeholder="Enter your name"
+          type="text"
+        />
+      </div>
+      <div class="field">
+        <label for="">Password</label>
+        <input
+          name="password"
+          [(ngModel)]="password"
+          placeholder="••••••••"
+          type="password"
+        />
+      </div>
+      <button (click)="logIn()">Sign in</button>
+    </form>
+  </div>
+</main>
+
+<app-footer></app-footer>

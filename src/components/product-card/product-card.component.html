@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="thumbnail">
+    <img class="prod-img" [src]="product.images[0]" alt="" />
+    <span class="sale">{{ "- " + product.discountPercentage + "%" }}</span>
+  </div>
+  <div class="desc">
+    <h3>{{ product?.title }}</h3>
+    <p class="text">{{ product?.description }}</p>
+    <div class="prices">
+      <!-- Before Discount -->
+      <del class="disct"
+        ><span class="sb">{{ product.price }}</span> USD</del
+      >
+      <!-- After Discount -->
+      <span
+        ><span class="sb">
+          {{ discountedPrice }}
+        </span>
+        USD</span
+      >
+    </div>
+    <p>
+      Brand: <span class="sb">{{ product?.brand }}</span>
+    </p>
+    <p>
+      Category: <span class="sb">{{ product?.category }}</span>
+    </p>
+    <p>
+      In stock: <span class="sb">{{ product?.stock }}</span>
+    </p>
+    <!-- Rating -->
+    <div>
+      <div class="rating-box">
+        <img src="assets/Star.svg" alt="" />
+        <span class="text"
+          ><span class="rate-num">
+            {{ product?.rating }}
+          </span>
+          ({{ product?.reviews.length }})</span
+        >
+      </div>
+    </div>
+    <button class="sb" (click)="addToCart()">ADD TO CART</button>
+  </div>
+</div>

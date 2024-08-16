@@ -1,0 +1,37 @@
+<nav>
+  <div class="left-cont">
+    <app-logo></app-logo>
+    <button routerLink="/" class="text">Home</button>
+  </div>
+  <div *ngIf="!isLoggedIn" class="buttons">
+    <button routerLink="/login" class="text">Log In</button>
+    <button routerLink="/sign-up" class="text">Sign Up</button>
+  </div>
+
+  <div class="loggedin">
+    <div class="field">
+      <img
+        (click)="searchProducts()"
+        class="search"
+        src="assets/search.svg"
+        alt=""
+      />
+      <input
+        name="searchTerm"
+        [(ngModel)]="searchTerm"
+        placeholder="Search"
+        type="text"
+        (keyup.enter)="searchProducts()"
+      />
+    </div>
+    <button class="cart">
+      <img src="assets/Cart.svg" alt="" />
+      <span
+        [ngClass]="{ show: (cartProductsCount$ | async) != 0 }"
+        class="badge"
+        >{{ cartProductsCount$ | async }}</span
+      >
+    </button>
+    <span class="text">Account</span>
+  </div>
+</nav>

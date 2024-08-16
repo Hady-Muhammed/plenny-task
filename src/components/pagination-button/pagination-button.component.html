@@ -1,0 +1,19 @@
+<div>
+  <div class="pagination-controls">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      <img style="rotate: 180deg" src="assets/left-arrow.svg" alt="" />
+    </button>
+    <div class="page-numbers">
+      <button
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        (click)="goToPage(i + 1)"
+        [class.active]="i + 1 === currentPage"
+      >
+        {{ i + 1 }}
+      </button>
+    </div>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+      <img src="assets/left-arrow.svg" alt="" />
+    </button>
+  </div>
+</div>

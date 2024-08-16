@@ -1,0 +1,40 @@
+<app-navbar
+  (onSearching)="searchProducts($event)"
+  [isLoggedIn]="isLoggedIn"
+></app-navbar>
+<main>
+  @if (isLoggedIn) {
+  <aside>
+    <h4>Products</h4>
+    <div class="item" *ngFor="let categ of categories">
+      <input
+        type="radio"
+        [id]="categ.name"
+        [value]="categ.name"
+        name="categ"
+        [(ngModel)]="selectedCategId"
+        (change)="onCategoryChange(categ.name)"
+      />
+      <label [for]="categ.name">{{ categ.name }}</label>
+    </div>
+  </aside>
+  <div [ngClass]="{ 'product-grid': products?.length > 0 }">
+    @if (products?.length > 0) {
+    <app-product-card
+      *ngFor="let product of products"
+      [product]="product"
+    ></app-product-card>
+    } @else {
+    <div class="prod-msg" style="margin-left: 15rem">No Products found !</div>
+    }
+  </div>
+  } @else {
+  <div class="msg">YOU SHOULD LOGIN FIRST TO SEE THE PRODUCTS !</div>
+  }
+</main>
+<app-pagination-button
+  *ngIf="products?.length > 0"
+  [currentPage]="currentPage"
+  (onPageChange)="currentPage = $event; getProducts()"
+></app-pagination-button>
+<app-footer></app-footer>

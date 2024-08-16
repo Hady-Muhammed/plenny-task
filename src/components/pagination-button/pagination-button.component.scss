@@ -1,0 +1,27 @@
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.pagination-controls button {
+  margin: 0 5px;
+}
+
+.page-numbers {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.page-numbers button {
+  margin: 0 3px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.page-numbers button.active {
+  background: #41cccc;
+  color: white;
+}
